@@ -10,7 +10,7 @@ use App\Http\Controllers\ContactController;
 
 // Home route
 Route::get('/', function () {
-    return view('map');
+    return view('pages/map');
 })->name('home');
 
 // Map route
@@ -35,4 +35,4 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::get('/about', function () { 
     return view('pages.about'); })->name('about');
 Route::get('/contact', function () { 
-    return view('pages.contact'); })->name('contact');
+    return view('pages.contacts'); })->name('contact');
