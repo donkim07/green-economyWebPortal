@@ -35,7 +35,7 @@
                     <div class="mb-3">
                         <h6>Waste Dealers</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="plasticDealers" checked>
+                            <input class="form-check-input" type="checkbox" id="wasteDealers" checked>
                             <label class="form-check-label" for="plasticDealers">Plastic</label>
                         </div>
                         <div class="form-check">
@@ -55,7 +55,7 @@
                     <div class="mb-3">
                         <h6>Recycling Centers</h6>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="plasticRecycling" checked>
+                            <input class="form-check-input" type="checkbox" id="recyclingCenters" checked>
                             <label class="form-check-label" for="plasticRecycling">Plastic</label>
                         </div>
                         <div class="form-check">
