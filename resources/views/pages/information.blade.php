@@ -53,9 +53,9 @@
 
 @section('content')
 <!-- Hero Section with Parallax -->
-<section class="hero-parallax position-relative overflow-hidden" style="height: 400px;">
+{{-- <section class="hero-parallax position-relative overflow-hidden" style="height: 400px;">
     <div class="parallax-bg position-absolute w-100 h-100">
-        <img src="/api/placeholder/1920/800" class="w-100 h-100 object-fit-cover" alt="Information Center Background">
+        <img src="{{ asset('images/circular.png') }}"class="w-100 h-100 object-fit-cover" alt="Information Center Background">
     </div>
     <div class="overlay position-absolute w-100 h-100 bg-dark opacity-60"></div>
     <div class="container h-100">
@@ -66,10 +66,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- Quick Links Navigation -->
-<section class="bg-light py-4 sticky-top shadow-sm">
+{{-- <section class="bg-light py-4 sticky-top shadow-sm">
     <div class="container">
         <div class="row g-2 justify-content-center">
             <div class="col-auto">
@@ -89,10 +89,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- Opportunities Section -->
-<section id="opportunities" class="py-5">
+{{-- <section id="opportunities" class="py-5"> --}}
     <div class="container">
         <h2 class="section-title text-center mb-5">Current Opportunities</h2>
         <div class="row g-4">
