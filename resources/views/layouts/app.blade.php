@@ -84,7 +84,7 @@
 
 
 
-    <style>
+    {{-- <style>
         :root {
             --primary-green: #30ad4d;
             --light-green: #e8f5e9;
@@ -118,7 +118,13 @@
 
         .navbar-nav .nav-link:hover {
             opacity: 0.8;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
         }
+        /* .navbar-nav .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        } */
 
         .top-branding {
             background-color: #a5c4a8f1;
@@ -127,7 +133,7 @@
         }
 
         .logo-container img {
-            max-height: 80px;
+            max-height: 50px;
             width: auto;
             transition: transform 0.3s;
         }
@@ -137,13 +143,13 @@
         }
 
         .secondary-logos img {
-            max-height: 50px;
+            max-height: 30px;
             width: auto;
             margin: 0.5rem;
         }
 
         .national-flag {
-            max-height: 100px !important;
+            max-height: 30px !important;
         }
 
         footer {
@@ -171,7 +177,162 @@
 
 
 
+</style> --}}
+
+
+<style>
+    :root {
+        --primary-green: #30ad4d;
+        --light-green: #dcf3de;
+    }
+    html, body {
+            height: 100%;
+            margin: 0;
+        }
+    body {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--light-green);
+            min-height: 100vh;
+        }
+
+    .top-branding {
+        background-color: #a5c4a8f1;
+        padding: 1.5rem 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 120px;
+    }
+
+    /* Flag background styling */
+    .flag-background {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-container img {
+            max-height: 50px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+    .flag-background img {
+        height: 140%;
+        object-fit: cover;
+        opacity: 0.4;
+        mask-image: linear-gradient(to right, 
+            transparent 0%,
+            black 20%,
+            black 80%,
+            transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(to right, 
+            transparent 0%,
+            black 20%,
+            black 80%,
+            transparent 100%
+        );
+    }
+
+    .branding-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    /* Main logos */
+    .main-logo {
+        max-height: 80px;
+        width: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .main-logo:hover {
+        transform: scale(1.05);
+    }
+
+    /* Partner logos */
+    .partner-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        padding: 0 2rem;
+    }
+
+    .partner-logo {
+        max-height: 45px;
+        width: auto;
+        transition: opacity 0.3s ease;
+    }
+
+    .partner-logo:hover {
+        opacity: 0.8;
+    }
+
+    /* Navbar styling */
+    .navbar {
+        background-color: var(--primary-green);
+        padding: 0.75rem 0;
+    }
+
+    .navbar-brand img {
+        max-height: 40px;
+        width: auto;
+    }
+
+    .navbar-nav .nav-link {
+        color: white !important;
+        padding: 0.5rem 1.2rem !important;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 4px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 992px) {
+        .partner-logos {
+            display: none;
+        }
+
+        .main-logo {
+            max-height: 60px;
+        }
+
+        .district-logo {
+            display: none;
+        }
+
+        .navbar-brand {
+            order: 2;
+            margin-left: auto;
+        }
+
+        .navbar-toggler {
+            order: 1;
+        }
+        .top-branding {
+        display: none;
+    }
+    }
 </style>
+
 
 
 
@@ -183,12 +344,13 @@ crossorigin=""/>
 
 
 
+
 <style>
 
 
 
-        
-/* map css */
+      
+/* map css 
         #map {
         height: calc(100vh - 100px);
         width: 100%;
@@ -196,7 +358,7 @@ crossorigin=""/>
         z-index: 1;
     }
     
-    /* .sidebar {
+    .sidebar {
         height: 100vh;
         position: fixed;
         top: 0;
@@ -204,12 +366,13 @@ crossorigin=""/>
         z-index: 100;
         padding-top: 60px;
         box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    } */
+    } 
 
     .marker-popup img {
         max-width: 200px;
         height: auto;
-    }
+    }  */
+
 
     /* main {
         padding-top: 60px;
@@ -223,10 +386,32 @@ crossorigin=""/>
         padding: 48px 0 0;
         box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     } */
+/* map css */
+#map {
+    height: calc(100vh - 100px);
+    width: 100%;
+    min-height: 500px;
+    z-index: 1;
+}
 
+.marker-popup img {
+    max-width: 200px;
+    height: auto;
+    display: block; /* Prevents layout shift */
+    aspect-ratio: 16/9; /* Maintains space before image loads */
+    background-color: #f0f0f0; /* Light gray placeholder */
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.marker-popup img.loaded {
+    opacity: 1;
+}
 
     /* Make map container responsive */
-    /* /* @media (max-width: 768px) {
+    
+     @media (max-width: 768px) {
         .sidebar {
             position: static;
             height: auto;
@@ -235,7 +420,8 @@ crossorigin=""/>
         #map {
             height: 500px;
         }
-    }  */
+    }  
+        
     </style>
 
       <!-- Make sure you put this AFTER Leaflet's CSS -->
@@ -248,8 +434,8 @@ crossorigin=""/>
  document.addEventListener('DOMContentLoaded', function() {
     // Initialize the map
     const map = L.map('map', {
-        center: [-6.3690, 34.8888], // Tanzania center
-        zoom: 7,
+        center: [-2.7, 32.9175], // Tanzania center
+        zoom: 10,
         zoomControl: true,
         maxBounds: [
             [-11.7457, 29.3399], // Southwest coordinates
@@ -290,34 +476,90 @@ crossorigin=""/>
             className: 'custom-div-icon',
             html: `<div style="background-color: #ffc107; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff;"></div>`,
             iconSize: [35, 35]
-        })
+        }),
+        wasteDealer: L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div style="background-color: #0dcaf0; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff;"></div>`,
+            iconSize: [15, 35]
+        }),
+        recyclingCenter: L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div style="background-color: #0d6efd; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff;"></div>`,
+            iconSize: [25, 35]
+        }),
     };
 
     // Sample data - Replace with actual data from your database
     const sampleData = {
         legalPoints: [
-            { lat: -6.8235, lng: 39.2695, name: "Dar es Salaam Collection Point", ward: "Kariakoo", street: "Mkunguni Street" },
-            { lat: -6.1731, lng: 35.7516, name: "Dodoma Collection Point", ward: "Central", street: "Main Street" }
+            { lat: -2.60207, lng: 32.932, name: "Mwanza", ward: "Mkolani", street: "Ibanda", image: "legal1.png" },
+            { lat: -2.50939, lng: 32.97661, name: "Ilemela", ward: "", street: "", image: "legal2.png"},
+            { lat: -2.54181, lng: 32.95284, name: "Mwanza", ward: "Mhandu", street: "Isegemg'ghe A", image: "legal1.png"}
+
         ],
+
         illegalPoints: [
-            { lat: -6.8135, lng: 39.2805, name: "Illegal Site A", ward: "Kivukoni", street: "Harbor Street" }
+            { lat: -2.50337, lng: 32.93049, name: "Ilemela", ward: "Nyamanoro", street: "", image: "illigal1.png" },
+            { lat: -2.45393, lng: 32.90832, name: "Ilemela", ward: "Ilemela", street: "", image: "illigal2.png" }
+
         ],
         dumpingSites: [
-            { lat: -6.8335, lng: 39.2505, name: "Dumping Area 1", ward: "Kisutu", street: "Market Street" }
+            { lat: -2.50237, lng: 32.93049, name: "Ilemela", ward: "", street: "", image: "legal2.png" },
+            { lat: -2.4493, lng: 32.90832, name: "Mwanza", ward: "Buhongwa", street: "Ihilya B", image: "legal1.png" }
+
+        ],
+        wasteDealers: [
+            { lat: -2.54631, lng: 32.98199, name: "Ilemela", ward: "Igoma", street: "Igoma Kati",  image: "illigal2.png" },
+            { lat: -2.59633, lng: 32.928317, name: "Mwanza City", ward: "Mkolani", street: "Mkolani",  image: "illigal1.png" }
+
+        ],        
+        recyclingCenters: [
+            { lat: -2.53201, lng: 32.94956, name: "Ilemela", ward: "Mecco", street: "Mecco Mashariki", image: "legal1.png" }
+            // { lat: -2.45393, lng: 32.90832, name: "Mwanza", ward: "Buhongwa", street: "Ihilya B" }
+
         ]
     };
 
     // Function to create popup content
+    // function createPopupContent(item) {
+    //     return `
+    //         <div class="marker-popup">
+    //             <h5>${item.name}</h5>
+    //             <p><strong>Ward:</strong> ${item.ward}<br>
+    //             <strong>Street:</strong> ${item.street}</p>
+    //             ${item.image ? `
+    //             <img src="/public/images/${item.image}" alt="${item.name}">
+    //             ` : ''}
+    //         </div>
+    //     `;
+    // }
+    // function createPopupContent(item) {
+    //     return `
+    //         <div class="marker-popup">
+    //             <h5>${item.name}</h5>
+    //             <p><strong>Ward:</strong> ${item.ward}<br>
+    //             <strong>Street:</strong> ${item.street}</p>
+               
+    //         <img src="${window.location.origin}/images/${item.image}" alt="${item.name}" style="max-width: 200px;">               
+    //         </div>
+    //     `;
+    // }
     function createPopupContent(item) {
-        return `
-            <div class="marker-popup">
-                <h5>${item.name}</h5>
-                <p><strong>Ward:</strong> ${item.ward}<br>
-                <strong>Street:</strong> ${item.street}</p>
-                ${item.image ? `<img src="${item.image}" alt="${item.name}">` : ''}
-            </div>
-        `;
-    }
+    return `
+        <div class="marker-popup">
+            <h5>${item.name}</h5>
+            <p><strong>Ward:</strong> ${item.ward}<br>
+            <strong>Street:</strong> ${item.street}</p>
+            <img 
+                src="${window.location.origin}/images/${item.image}" 
+                alt="${item.name}" 
+                loading="lazy"
+                onload="this.classList.add('loaded')"
+                onerror="this.src='${window.location.origin}/images/placeholder.png'"
+            >
+        </div>
+    `;
+}
 
     // Add markers to the map
     function addMarkers() {
@@ -340,6 +582,20 @@ crossorigin=""/>
             L.marker([point.lat, point.lng], {icon: icons.dumpingSite})
                 .bindPopup(createPopupContent(point))
                 .addTo(layers.dumpingSites);
+        });
+
+            //add waste dealers
+        sampleData.wasteDealers.forEach(point => {
+            L.marker([point.lat, point.lng], {icon: icons.wasteDealer})
+                .bindPopup(createPopupContent(point))
+                .addTo(layers.wasteDealers);
+        }); 
+        
+        //add recycling
+        sampleData.recyclingCenters.forEach(point => {
+            L.marker([point.lat, point.lng], {icon: icons.recyclingCenter})
+                .bindPopup(createPopupContent(point))
+                .addTo(layers.recyclingCenters);
         });
     }
 
@@ -375,7 +631,7 @@ crossorigin=""/>
 </head>
 <body>
     <header>
-        <!-- Top Branding Section -->
+        {{-- <!-- Top Branding Section -->
         <div class="top-branding">
             <div class="container">
                 <!-- Primary Logos -->
@@ -407,9 +663,33 @@ crossorigin=""/>
                     </div>
                 </div>
             </div>
+        </div> --}}
+
+        <div class="top-branding">
+            <div class="flag-background">
+                <img src="{{ asset('images/national_flag.png') }}" alt="National Flag Background">
+            </div>
+            
+            <div class="container">
+                <div class="branding-content">
+                    <!-- Tanzania Logo -->
+                    <img src="{{ asset('images/tanzania_logo.png') }}" alt="United Republic of Tanzania logo" class="main-logo">
+                    
+                    <!-- Partner Logos -->
+                    <div class="partner-logos">
+                        <img src="{{ asset('images/sasa_program_logo.png') }}" alt="SASA program logo" class="partner-logo">
+                        <img src="{{ asset('images/enabel_logo.png') }}" alt="Enabel logo" class="partner-logo">
+                        <img src="{{ asset('images/thedi_logo.png') }}" alt="THEDI logo" class="partner-logo">
+                        <img src="{{ asset('images/sks_pharma_logo.png') }}" alt="SKS Pharma Ltd logo" class="partner-logo">
+                    </div>
+                    
+                    <!-- District Logo -->
+                    <img src="{{ asset('images/district_logo.png') }}" alt="District councils' logo" class="main-logo district-logo">
+                </div>
+            </div>
         </div>
 
-        <!-- Navigation -->
+        {{-- <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -427,7 +707,34 @@ crossorigin=""/>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <a class="navbar-brand d-lg-none" href="/">
+                <img src="{{ asset('images/tanzania_logo.png') }}" alt="Tanzania Logo">
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/map">Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/visualization">Visualization</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/stakeholders">Stakeholders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/information">Information</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/reports">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
     </header>
 
     <main class="main-content container mt-4">
