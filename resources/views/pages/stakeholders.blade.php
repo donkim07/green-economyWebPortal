@@ -39,15 +39,15 @@
 @section('title', 'Stakeholders Directory')
 
 @section('content')
-<div class="container py-4">
+<div class="container py-2">
     <!-- Page Header -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-2">
         <h1 class="display-4 text-success mb-2">Stakeholders Directory</h1>
         <p class="lead text-muted">Comprehensive directory of waste management stakeholders in Tanzania</p>
     </div>
 
     <!-- Search and Filter Section -->
-    <div class="row mb-4">
+    <div class="row mb-2">
         <div class="col-md-8 mx-auto">
             <div class="input-group">
                 <input type="text" class="form-control" id="searchStakeholders" placeholder="Search stakeholders...">
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Regulatory Authorities Section -->
-    <section class="mb-5">
+    <section class="mb-2">
         <div class="d-flex align-items-center mb-4">
             <h2 class="h3 mb-0">Regulatory Authorities</h2>
             <div class="border-bottom flex-grow-1 ms-3"></div>
@@ -70,8 +70,8 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm hover-elevate">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="/api/placeholder/64/64" alt="NEMC Logo" class="rounded-circle me-3">
+                        <div class="d-flex align-items-center mb-3 logo-container">
+                            <img src="{{ asset('images/nemc_logo.png') }}" alt="NEMC Logo" class="rounded-circle me-3">
                             <div>
                                 <h3 class="h5 mb-1">National Environment Management Council (NEMC)</h3>
                                 <span class="badge bg-success">Regulatory Authority</span>
@@ -93,8 +93,8 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm hover-elevate">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="/api/placeholder/64/64" alt="OSHA Logo" class="rounded-circle me-3">
+                        <div class="d-flex align-items-center mb-3 logo-container">
+                            <img src="{{ asset('images/osha_logo.png') }}" alt="OSHA Logo" class="rounded-circle me-3">
                             <div>
                                 <h3 class="h5 mb-1">Occupational Safety and Health Authority (OSHA)</h3>
                                 <span class="badge bg-success">Regulatory Authority</span>
@@ -116,8 +116,8 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm hover-elevate">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="/api/placeholder/64/64" alt="VETA Logo" class="rounded-circle me-3">
+                        <div class="d-flex align-items-center mb-3 logo-container">
+                            <img src="{{ asset('images/veta_logo.png') }}" alt="VETA Logo" class="rounded-circle me-3">
                             <div>
                                 <h3 class="h5 mb-1">Vocational Education and Training Authority (VETA)</h3>
                                 <span class="badge bg-success">Training Institution</span>
