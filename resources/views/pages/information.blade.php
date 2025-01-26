@@ -91,7 +91,7 @@
     </div>
 </section> --}}
 
-<!-- Opportunities Section -->
+<!--New Opportunities Section -->
 {{-- <section id="opportunities" class="py-5"> --}}
     <div class="container">
         <h2 class="section-title text-center mb-5">Current Opportunities</h2>
