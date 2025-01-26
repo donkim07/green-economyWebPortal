@@ -24,7 +24,7 @@
     </div>
 @endsection --}}
 
-
+<!-- to be changed -->
 
 <!-- resources/views/contact.blade.php -->
 @extends('layouts.app')
