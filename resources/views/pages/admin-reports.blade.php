@@ -146,3 +146,37 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Main Content -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <!-- Quick Stats -->
+            <div class="row" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="stats-card">
+                        <div class="row g-4">
+                            <div class="col-md-3 text-center">
+                                <i class="fas fa-clock fa-2x text-warning mb-3"></i>
+                                <h4 id="pendingCount">Loading...</h4>
+                                <p class="text-muted mb-0">Pending Reports</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <i class="fas fa-check-circle fa-2x text-success mb-3"></i>
+                                <h4 id="resolvedCount">Loading...</h4>
+                                <p class="text-muted mb-0">Resolved Reports</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <i class="fas fa-times-circle fa-2x text-danger mb-3"></i>
+                                <h4 id="rejectedCount">Loading...</h4>
+                                <p class="text-muted mb-0">Rejected Reports</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+                                <h4 id="totalCount">Loading...</h4>
+                                <p class="text-muted mb-0">Total Reports</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
