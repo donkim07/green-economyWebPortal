@@ -265,3 +265,45 @@
             duration: 1000,
             once: true
         });
+// Load and update statistics
+async function updateStatistics() {
+            try {
+                const reportsRef = db.collection('wasteReports');
+                const [pending, resolved, rejected] = await Promise.all([
+                    reportsRef.where('status', '==', 'pending').get(),
+                    reportsRef.where('status', '==', 'resolved').get(),
+                    reportsRef.where('status', '==', 'rejected').get()
+                ]);
+
+                const stats = {
+                    pending: pending.size,
+                    resolved: resolved.size,
+                    rejected: rejected.size,
+                    total: pending.size + resolved.size + rejected.size
+                };
+
+                // Update stats display
+                document.getElementById('pendingCount').textContent = stats.pending;
+                document.getElementById('resolvedCount').textContent = stats.resolved;
+                document.getElementById('rejectedCount').textContent = stats.rejected;
+                document.getElementById('totalCount').textContent = stats.total;
+
+                // Update hero stats
+                document.getElementById('reportStats').innerHTML = `
+                    <div class="col-6">
+                        <div class="bg-white bg-opacity-10 rounded-3 p-3">
+                            <h3 class="mb-0">${stats.total}</h3>
+                            <small>Total Reports</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bg-white bg-opacity-10 rounded-3 p-3">
+                            <h3 class="mb-0">${stats.pending}</h3>
+                            <small>Pending Reports</small>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error("Error updating statistics:", error);
+            }
+        }
