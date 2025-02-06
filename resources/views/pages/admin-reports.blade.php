@@ -244,3 +244,24 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAZy-poCl4f2yQITb3irlr2JiULgGsdhqY",
+            authDomain: "waste-manager-ef49a.firebaseapp.com",
+            projectId: "waste-manager-ef49a",
+            storageBucket: "waste-manager-ef49a.appspot.com",
+            messagingSenderId: "603598484412",
+            appId: "1:603598484412:web:715516a9e42a2e3293b1b9",
+            measurementId: "G-QK5R7K1VSG"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
