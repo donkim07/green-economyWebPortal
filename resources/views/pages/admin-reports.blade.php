@@ -363,3 +363,92 @@ async function updateStatistics() {
                 console.error("Error loading reports:", error);
             }
         }
+
+        // Search functionality
+        function searchReports() {
+            const input = document.querySelector('.search-box input');
+            const filter = input.value.toUpperCase();
+            const rows = document.getElementById('reportsTableBody').getElementsByTagName('tr');
+
+            for (const row of rows) {
+                const cells = row.getElementsByTagName('td');
+                let shouldShow = false;
+
+                for (const cell of cells) {
+                    const text = cell.textContent || cell.innerText;
+                    if (text.toUpperCase().indexOf(filter) > -1) {
+                        shouldShow = true;
+                        break;
+                    }
+                }
+
+                row.style.display = shouldShow ? '' : 'none';
+            }
+        }
+
+        // Filter reports
+        async function filterReports() {
+            const district = document.getElementById('districtFilter').value;
+            const status = document.getElementById('statusFilter').value;
+            const tableBody = document.getElementById('reportsTableBody');
+            tableBody.innerHTML = '';
+
+            try {
+                let query = db.collection('wasteReports');
+                
+                if (district) {
+                    query = query.where('district', '==', district);
+                }
+                if (status) {
+                    query = query.where('status', '==', status);
+                }
+
+                query = query.orderBy('reportedAt', 'desc');
+                const snapshot = await query.get();
+
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const row = document.createElement('tr');
+                    const date = data.reportedAt?.toDate() || new Date();
+                    
+                    row.innerHTML = `
+                        <td>${date.toLocaleDateString()}</td>
+                        <td>
+                            <img src="${data.imageUrl}" alt="Report Image" class="report-image"
+                                onclick="showImagePreview('${data.imageUrl}')">
+                        </td>
+                        <td>${data.reporterName || 'N/A'}</td>
+                        <td>
+                            ${data.reporterPhone ? `<i class="fas fa-phone-alt text-success"></i> ${data.reporterPhone}<br>` : ''}
+                            ${data.reporterEmail ? `<i class="fas fa-envelope text-primary"></i> ${data.reporterEmail}` : ''}
+                        </td>
+                        <td>
+                            <strong>${data.district}</strong><br>
+                            ${data.ward}, ${data.street}
+                        </td>
+                        <td>
+                            <span class="status-badge status-${data.status}">
+                                ${data.status.charAt(0).toUpperCase() + data.status.slice(1)}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" 
+                                onclick="viewLocation(${data.location.latitude}, ${data.location.longitude})">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-success ms-1" 
+                                onclick="updateStatus('${doc.id}', 'resolved')">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger ms-1" 
+                                onclick="updateStatus('${doc.id}', 'rejected')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error filtering reports:", error);
+            }
+        }
