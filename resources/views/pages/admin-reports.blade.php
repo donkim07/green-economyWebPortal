@@ -248,7 +248,7 @@
     <script>
         // Initialize Firebase
         const firebaseConfig = {
-            apiKey: "AIzaSyAZy-poCl4f2yQITb3irlr2JiULgGsdhqY",
+            apiKey: "",
             authDomain: "waste-manager-ef49a.firebaseapp.com",
             projectId: "waste-manager-ef49a",
             storageBucket: "waste-manager-ef49a.appspot.com",
