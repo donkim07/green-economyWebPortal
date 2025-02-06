@@ -180,3 +180,48 @@
                     </div>
                 </div>
             </div>
+            <!-- Reports Table -->
+            <div class="table-card mt-5" data-aos="fade-up">
+                <div class="table-header">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <h2 class="h4 mb-3 mb-md-0">Waste Reports</h2>
+                        <div class="d-flex align-items-center">
+                            <select class="filter-dropdown" id="districtFilter" onchange="filterReports()">
+                                <option value="">All Districts</option>
+                                <option value="Mwanza">Mwanza</option>
+                                <option value="Ilemela">Ilemela</option>
+                            </select>
+                            <select class="filter-dropdown" id="statusFilter" onchange="filterReports()">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="resolved">Resolved</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            <div class="search-box bg-white rounded-pill" style="width: 250px;">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search reports..." onkeyup="searchReports()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Image</th>
+                                <th>Reporter</th>
+                                <th>Contact</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportsTableBody">
+                            <!-- Reports will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
