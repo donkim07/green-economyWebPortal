@@ -128,3 +128,21 @@
         }
     </style>
 </head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">Waste Reports Dashboard</h1>
+                    <p class="lead mb-4">Track and manage waste reports across Mwanza & Ilemela</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="row g-4 text-center" id="reportStats">
+                        <!-- Stats will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
