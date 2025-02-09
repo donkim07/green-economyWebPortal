@@ -400,7 +400,13 @@ try {
                 if (status) {
                     query = query.where('status', '==', status);
                 }
-            
+            query = query.orderBy('reportedAt', 'desc');
+                const snapshot = await query.get();
+
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const row = document.createElement('tr');
+                    const date = data.reportedAt?.toDate() || new Date();
 
                 
                             
