@@ -419,6 +419,16 @@ try {
                         <td>
                             ${data.reporterPhone ? `<i class="fas fa-phone-alt text-success"></i> ${data.reporterPhone}<br>` : ''}
                 
-                            
+                            ${data.reporterEmail ? `<i class="fas fa-envelope text-primary"></i> ${data.reporterEmail}` : ''}
+                        </td>
+                        <td>
+                            <strong>${data.district}</strong><br>
+                            ${data.ward}, ${data.street}
+                        </td>
+                        <td>
+                            <span class="status-badge status-${data.status}">
+                                ${data.status.charAt(0).toUpperCase() + data.status.slice(1)}
+                            </span>
+                        </td>
                         
 
