@@ -391,7 +391,15 @@ async function updateStatistics() {
             const status = document.getElementById('statusFilter').value;
             const tableBody = document.getElementById('reportsTableBody');
             tableBody.innerHTML = '';
-
+try {
+                let query = db.collection('wasteReports');
+                
+                if (district) {
+                    query = query.where('district', '==', district);
+                }
+                if (status) {
+                    query = query.where('status', '==', status);
+                }
             
 
                 
