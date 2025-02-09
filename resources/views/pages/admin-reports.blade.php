@@ -408,6 +408,16 @@ try {
                     const row = document.createElement('tr');
                     const date = data.reportedAt?.toDate() || new Date();
 
+                    
+                    row.innerHTML = `
+                        <td>${date.toLocaleDateString()}</td>
+                        <td>
+                            <img src="${data.imageUrl}" alt="Report Image" class="report-image"
+                                onclick="showImagePreview('${data.imageUrl}')">
+                        </td>
+                        <td>${data.reporterName || 'N/A'}</td>
+                        <td>
+                            ${data.reporterPhone ? `<i class="fas fa-phone-alt text-success"></i> ${data.reporterPhone}<br>` : ''}
                 
                             
                         
