@@ -431,4 +431,24 @@ try {
                             </span>
                         </td>
                         
-
+<td>
+                            <button class="btn btn-sm btn-outline-primary" 
+                                onclick="viewLocation(${data.location.latitude}, ${data.location.longitude})">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-success ms-1" 
+                                onclick="updateStatus('${doc.id}', 'resolved')">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger ms-1" 
+                                onclick="updateStatus('${doc.id}', 'rejected')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error filtering reports:", error);
+            }
+        }
