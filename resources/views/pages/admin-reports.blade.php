@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -386,4 +385,16 @@ async function updateStatistics() {
             }
         }
 
+        // Filter reports
+        async function filterReports() {
+            const district = document.getElementById('districtFilter').value;
+            const status = document.getElementById('statusFilter').value;
+            const tableBody = document.getElementById('reportsTableBody');
+            tableBody.innerHTML = '';
+
+            
+
+                
+                            
+                        
 
